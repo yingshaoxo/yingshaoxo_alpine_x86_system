@@ -32,6 +32,8 @@ This system has `gcc,python3.10,vim,wget,tmux,bash,ffmpeg,ssh_service` built_in,
 
 > They actually provides some local apk packages for you to install in their iso file, in /media/cdrom/apk/x86, you can install them by "apk add ./xx.apk"
 
+> I would suggest you papare 2 disk, one 10GB for system, one 1TB for your home data. Because this version of alpine does not support install to a partition, it will erase the whole disk.
+
 
 ## How to install yingshaoxo alpine system?
 ### Method 1
