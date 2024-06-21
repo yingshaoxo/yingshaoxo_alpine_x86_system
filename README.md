@@ -5,12 +5,12 @@ When I create it, the amd64 archtecture computer can also use it.
 
 This system has `gcc,python3.10,vim,wget,tmux,bash,ffmpeg,ssh_service` built_in, can work in offline.
 
-> **I just want to say, why a simple file and folder copy and paste, has to be done by 100+ steps? Where is the problem with system installation? Why they make it so complecated? If I can create my own computer hardware, I will make the system modification as simple as insert the disk, copy all those files and folders in, done. 2 Steps.**
+> I just want to say, why a simple file and folder copy and paste, has to be done by 100+ steps? Where is the problem with system installation? Why they make it so complecated? If I can create my own computer hardware, I will make the system modification as simple as insert the disk, copy all those files and folders in, done. 2 Steps.
 
 > **According to my experience, each time when they created some new computer type, they will force abandon old systems, they will let you unable to install old systems. But unfortunately, old system has more freedom. As for security, what kind of hacker can hack in a computer that does not have internet?**
 
 
-## How to install
+## How to install?
 1. Get an old computer that supports "MBR parition and BIOS boot_loading", normally it was created before 2010 years. Use "alpine_3.0.5_x86_setup-alpine.iso" file to do an offline install first by typing "setup-alpine". You may need to use "rufus" to make a bootable USB driver because the official alpine does not have boot software in their iso file, I hate that. Then copy and paste some folders under "./disk_data" to root folder of your system by using "./install_system.sh" (You should know how to mount a USB storage to a folder, then in that folder use rsync to do a copy.)
 2. Use "alpine_3.0.5_x86_setup-alpine.iso" file to do normal offline install first. then create a iso file or CD for "./disk_data", mount that iso file or CD to "/media/cdrom", run "./install_system.sh".
 3. Use "alpine_3.0.5_x86_setup-alpine.iso" to do offline install first. then in another disk partition, install another linux system that will generate boot menu and also work as a PE. In another linux system, copy "disk_data/*" folder to your alpine root folder based on rules in "./install_system.sh".
