@@ -19,6 +19,8 @@ This system has `gcc,python3.10,vim,wget,tmux,bash,ffmpeg,ssh_service` built_in,
 
 > Virtualbox container: https://www.mediafire.com/file/54zdwsz4exbheq4/yingshaoxo_alpine_x86_system_virtualbox_2024_6_21.7z/file
 
+> When use win_xp virtualbox, you have to `turn off vt-x and amd-v`, you have to manually add vdi as disk, you have to set linux type to 'other 32bit type linux'.
+
 
 ## How to install the original alpine system?
 0. go to "alpine_3.0.5_x86_setup-alpine", run `./merge_to_get_real_iso_file.sh`. (It uses "cat alpine_3.0.5_x86_setup-alpine.0* > alpine_3.0.5_x86_setup-alpine_test.iso")
