@@ -49,7 +49,7 @@ copy everything in disk_data to root folder: `cd /media/disk_data && ./install_s
 
 > If you hit error, you probabally need to copy folders one by one according to "./install_system.sh" script
 
-> Mount type after "mount -t" can be "adfs, affs, autofs, cifs, coda, coherent, cramfs, debugfs, devpts, efs, ext, ext2, ext3, ext4, hfs, hfsplus, hpfs, iso9660, jfs, minix, msdos, ncpfs, nfs,  nfs4,  ntfs,  proc, ncpfs". Normally you will only use `msdos, ext2, ext4, ntfs, iso9660`.
+> Mount type after "mount -t" can be "fat, vfat, adfs, affs, autofs, cifs, coda, coherent, cramfs, debugfs, devpts, efs, ext, ext2, ext3, ext4, hfs, hfsplus, hpfs, iso9660, jfs, minix, msdos, ncpfs, nfs,  nfs4,  ntfs,  proc, ncpfs". Normally you will only use `fat, vfat, msdos, ext2, ext4, ntfs, iso9660`.
 
 
 ### Method 2, in LAN, if you have 'tar'
