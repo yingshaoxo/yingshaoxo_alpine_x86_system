@@ -1,0 +1,66 @@
+ <!DOCTYPE html>
+<html>
+<body>
+
+<div class="the_image">
+    <img src="./gui.png" width="100%" height="100%">
+</div>
+
+<script>
+var host = window.location.protocol + "//" + window.location.host;
+
+function send_get_request(url) {
+    var request;
+    if (window.XMLHttpRequest) {
+        // for modern browsers
+        request = new XMLHttpRequest();
+    } else {
+        // for IE6, IE5
+        request = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    request.open('GET', url, false);
+    request.send(null);
+}
+
+function send_window_size() {
+    var height = window.innerHeight; 
+    var width = window.innerWidth;
+    console.log(height, width);
+
+    send_get_request(host + "/" + "change_resolution?"+"height="+height+"&width="+width);
+}
+window.addEventListener('resize', function(event) {
+    send_window_size();
+
+    location.reload(); 
+}, true);
+
+function handle_mouse_click(event) {
+    console.log(event.clientY, event.clientX);
+
+    send_get_request(host + "/" + "click?"+"y="+event.clientY+"&x="+event.clientX);
+
+    location.reload(); 
+}
+document.addEventListener("click", handle_mouse_click);
+
+function handle_touch(event) {
+    //console.log(event)
+}
+window.addEventListener("touchstart", handle_touch, false);
+window.addEventListener("touchmove", handle_touch, false);
+window.addEventListener("touchcancel", handle_touch, false);
+window.addEventListener("touchend", handle_touch, false);
+
+send_window_size();
+</script> 
+
+<style>
+.the_image {
+    width: 100%;
+    height: 100%;
+}
+</style>
+
+</body>
+</html> 

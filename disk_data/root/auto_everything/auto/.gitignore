@@ -1,0 +1,7 @@
+cmake-build-debug
+
+auto.egg-info
+
+build/
+
+*.swp
