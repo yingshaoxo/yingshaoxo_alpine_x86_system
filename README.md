@@ -68,6 +68,7 @@ cd disk_data
 
 ## Password
 user: root
+
 password: root
 
 
@@ -93,6 +94,7 @@ http://dl-cdn.alpinelinux.org/alpine/v3.0/main/
 ```
 
 ### Add software
+```
 apk update
 
 apk add musl-dev
@@ -105,6 +107,7 @@ apk add vim
 apk add ffmpeg
 apk add tmux
 apk add openssh
+```
 
 ### Enable ssh service
 vim /etc/ssh/sshd_config
@@ -114,15 +117,18 @@ ListenAddress 0.0.0.0
 PasswordAuthentication yes
 ```
 service sshd status
+
 service sshd start
 
 ### Add yingshaoxo python3.10
 https://gitlab.com/yingshaoxo/use_docker_to_build_static_python3_binary_executable
 
 ### Shrink vdi file
+```
 dd if=/dev/zero of=/var/dummy bs=8126k
 rm /var/dummy
 VBoxManage modifymedium disk ./alpine_x86.vdi -compact
+```
 
 ### Convert virtualbox vdi to img
 VBoxManage internalcommands converttoraw alpine_x86.vdi alpine_x86.img
