@@ -9,6 +9,8 @@ This system has `gcc,python3.10,vim,wget,tmux,bash,ffmpeg,ssh_service` built_in,
 
 > **According to my experience, each time when they created some new computer type, they will force abandon old systems, they will let you unable to install old systems. But unfortunately, old system has more freedom. As for security, what kind of hacker can hack in a computer that does not have internet?**
 
+> In the end, for all software in manufacturer level, they simply do disk copy, who would waste time to install system manually one by one for millions of devices in factory?
+
 
 ## How to install?
 1. Get an old computer that supports "MBR parition and BIOS boot_loading", normally it was created before 2010 years. Use "alpine_3.0.5_x86_setup-alpine.iso" file to do an offline install first by typing "setup-alpine". You may need to use "rufus" to make a bootable USB driver because the official alpine does not have boot software in their iso file, I hate that. Then copy and paste some folders under "./disk_data" to root folder of your system by using "./install_system.sh" (You should know how to mount a USB storage to a folder, then in that folder use rsync to do a copy.)
