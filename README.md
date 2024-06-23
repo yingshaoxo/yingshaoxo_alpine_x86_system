@@ -19,22 +19,25 @@ This system has `gcc,python3.10,vim,wget,tmux,bash,ffmpeg,ssh_service` built_in,
 
 > Virtualbox container: https://www.mediafire.com/file/54zdwsz4exbheq4/yingshaoxo_alpine_x86_system_virtualbox_2024_6_21.7z/file
 
-> When use win_xp virtualbox, you have to `turn off vt-x and amd-v`, you have to manually add vdi as disk, you have to set linux type to 'other 32bit type linux'.
+> When use win_xp virtualbox, you have to `turn off vt-x and amd-v`, you have to manually add vdi as disk, you have to set linux type to 'other 32bit type linux'. You have to make sure cpu core is 1, but in real computer, this alpine version supports 2 core cpu, in old computer.
 
 
 ## How to install the original alpine system?
 0. go to "alpine_3.0.5_x86_setup-alpine", run `./merge_to_get_real_iso_file.sh`. (It uses "cat alpine_3.0.5_x86_setup-alpine.0* > alpine_3.0.5_x86_setup-alpine_test.iso")
-1. boot your machine with "alpine_3.0.5_x86_setup-alpine.iso"
-2. run `setup-alpine`
-3. manually modify network to add "iface eth0 inet dhcp" (if you don't know how to use vi, you can just hit enter)
-4. use "done" whtn set apk mirror
-5. set NTP as "none"
-6. select a disk partition as "sys"
-7. reboot, password is "root"
+1. or do the same thing with "hardware_bootable_alpine_3.0.5_x86", cd "hardware_bootable_alpine_3.0.5_x86", run "./merge_to_get_real_iso_file.sh". (Virtualbox does not support this version, this only works for real hardware x86 old computer. You will need to use `tar -xzf **.tar.gz` to get iso file. You will need to use dd to copy the whole iso file into your 8GB USB driver to create a boot USB, `dd if=**.iso of=/dev/sdb`)
+2. boot your machine with "alpine_3.0.5_x86_setup-alpine.iso"
+3. run `setup-alpine`
+4. manually modify network to add "iface eth0 inet dhcp" (if you don't know how to use vi, you can just hit enter)
+5. use "done" whtn set apk mirror
+6. set NTP as "none"
+7. select a disk partition as "sys"
+8. reboot, username and password is "root"
 
-> They actually provides some local apk packages for you to install in their iso file, in /media/cdrom/apk/x86, you can install them by "apk add ./xx.apk"
+> They actually provides some local apk packages for you to install in their iso file, in /media/cdrom/apk/x86 or /media/usb, you can install them by "apk add ./xx.apk"
 
 > I would suggest you papare 2 disk, one 10GB for system, one 1TB for your home data. Because this version of alpine does not support install to a partition, it will erase the whole disk.
+
+> This alpine version only supports ext2 than ext4. Just the same as ubuntu8.
 
 
 ## How to install yingshaoxo alpine system?
