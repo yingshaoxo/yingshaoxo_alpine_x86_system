@@ -16,8 +16,8 @@ This system has `gcc,python3.10,vim,wget,tmux,bash,ffmpeg,ssh_service` built_in,
 1. Get an old computer that supports "MBR parition and BIOS boot_loading", normally it was created before 2010 years. Use "alpine_3.0.5_x86_setup-alpine.iso" file to do an offline install first by typing "setup-alpine". You may need to use "rufus" to make a bootable USB driver because the official alpine does not have boot software in their iso file, I hate that. Then copy and paste some folders under "./disk_data" to root folder of your system by using "./install_system.sh" (You should know how to mount a USB storage to a folder, then in that folder use rsync to do a copy.)
 2. Use "alpine_3.0.5_x86_setup-alpine.iso" file to do normal offline install first. then create a iso file or CD for "./disk_data", mount that iso file or CD to "/media/cdrom", run "./install_system.sh".
 3. Use "alpine_3.0.5_x86_setup-alpine.iso" to do offline install first. then in another disk partition, install another linux system that will generate boot menu and also work as a PE. In another linux system, copy "disk_data/*" folder to your alpine root folder based on rules in "./install_system.sh".
-4. Use virtualbox: just use vdi file directly if you can install virtualbox (You can also convert "./disk_data" to an iso file, then give it to virtualbox, then in your alpine system, you mount and use script to copy those files. **Virtualbox should let user be able to modify container files in realtime just like FTP or ssh or mount without installing any extensions**)
-5. Use chroot or mount if you know how to do it, I don't know. (script "./install_system.sh" may help you to figure out how)
+4. Or use virtualbox: just use vdi file directly if you can install virtualbox (You can also convert "./disk_data" to an iso file, then give it to virtualbox, then in your alpine system, you mount and use script to copy those files. **Virtualbox should let user be able to modify container files in realtime just like FTP or ssh or mount without installing any extensions**)
+5. Or use chroot or mount if you know how to do it, I don't know. (script "./install_system.sh" may help you to figure out how)
 
 > Virtualbox container: https://www.mediafire.com/file/54zdwsz4exbheq4/yingshaoxo_alpine_x86_system_virtualbox_2024_6_21.7z/file
 
@@ -54,7 +54,7 @@ This system has `gcc,python3.10,vim,wget,tmux,bash,ffmpeg,ssh_service` built_in,
 3. i am using `lubuntu16_i386` system to work as a PE system, all you have to do is install lubuntu16_i386 to another partition of your disk. It will generate a not working version of grub boot menu for you, you can see "unknown linux distrubution" when you boot your computer. you need to fix it later.
 4. boot into lubuntu16, `sudo su`, `vim /etc/grub.d/40_custom`, add following to the bottom:
     ```
-    menuentry 'Alpline' {
+    menuentry 'Alpine' {
         insmod part_msdos
         insmod ext2
         set root='hd0,msdos5'
