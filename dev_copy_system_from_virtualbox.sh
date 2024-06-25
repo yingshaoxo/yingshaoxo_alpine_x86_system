@@ -12,6 +12,7 @@ rsync -av root@192.168.2.107:/sbin/ ./disk_data/sbin/
 rsync -av root@192.168.2.107:/lib/ ./disk_data/lib/
 rsync -av root@192.168.2.107:/usr/ ./disk_data/usr/
 rsync -av root@192.168.2.107:/root/ ./disk_data/root/
+#rsync -av root@192.168.2.107:/boot/ ./disk_data/boot/
 
 cp ./rsync ./disk_data/
 cp ./install_system.sh ./disk_data/
