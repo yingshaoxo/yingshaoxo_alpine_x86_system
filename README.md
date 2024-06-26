@@ -81,6 +81,22 @@ This system has `gcc,python3.10,vim,wget,tmux,bash,ffmpeg,ssh_service` built_in,
 
 > if `/boot` not work on your computer, try `/new_boot` by doing rename
 
+### If you have ubuntu14, you can also use their /boot folder for newer amd64 computer that only support efi
+
+copy `./_new_boot2014_/*` into your alpine `/boot/` folder, then change boot menu `/etc/grub.d/40_custom`:
+
+```
+menuentry 'Alpine Linux 3.0 based on ubuntu14 boot' {
+	insmod part_gpt
+    insmod part_msdos
+	insmod ext2
+	search --no-floppy --fs-uuid --set=root 0f2b91c3-fb66-4d58-852c-57f1fcb31604
+	linux /_new_boot2014_/vmlinuz-4.4.0-142-generic.efi.signed root=UUID=0f2b91c3-fb66-4d58-852c-57f1fcb31604 ro intel_pstate=enable
+	initrd /_new_boot2014_/initrd.img-4.4.0-142-generic
+
+}
+```
+
 
 ## How to install yingshaoxo alpine system?
 ### Method 1
