@@ -30,7 +30,7 @@ This system has `gcc,python3.10,vim,wget,tmux,bash,ffmpeg,ssh_service` built_in,
 2. boot your machine with "alpine_3.0.5_x86_setup-alpine.iso"
 3. run `setup-alpine`
 4. manually modify network to add "iface eth0 inet dhcp" (if you don't know how to use vi, you can just hit enter)
-5. use "done" whtn set apk mirror
+5. use "done" when set apk mirror
 6. set NTP as "none"
 7. select a disk partition as "sys"
 8. reboot, username and password is "root"
@@ -39,7 +39,7 @@ This system has `gcc,python3.10,vim,wget,tmux,bash,ffmpeg,ssh_service` built_in,
 
 > I would suggest you papare 2 disk, one 10GB for system, one 1TB for your home data. Because this version of alpine does not support install to a partition, it will erase the whole disk.
 
-> This alpine version only supports ext2 than ext4. Just the same as ubuntu8.
+> Ubuntu8 only support ext2 disk format, but this alpine version supports ext4. I'm not saying newer is better, just a tip for you to install ubuntu8.
 
 
 ## How to install the hardware_bootable_alpine_3.0.5_x86 version?
@@ -49,7 +49,7 @@ This system has `gcc,python3.10,vim,wget,tmux,bash,ffmpeg,ssh_service` built_in,
 
 
 ## How to install the alpine in a single disk partition by doing disk partition copy and fix the boot menu?
-1. copy your old alpine system partition as a iso file, especially make sure the `/boot` folder has files: `vmlinuxz-grsec` and `initramfs-grsec`. `dd if=/dev/sdb2 of=xx.iso`. (also do `chown -R root /` to make all files in that partition belongs to root permission)
+1. copy your old alpine system partition as a iso file, here my version is `./disk_data/`, especially make sure the `/boot` folder has files: `vmlinuxz-grsec` and `initramfs-grsec`. `dd if=/dev/sdb2 of=xx.iso`. (also do `chown -R root /` to make all files in that partition belongs to root permission)
 2. use dd to copy that disk partiton to your new computer partition, a ext4 would be fine. `dd if=xx.iso of=/dev/sdb2`
 3. i am using `lubuntu16_i386` system to work as a PE system, all you have to do is install lubuntu16_i386 to another partition of your disk. It will generate a not working version of grub boot menu for you, you can see "unknown linux distrubution" when you boot your computer. you need to fix it later.
 4. boot into lubuntu16, `sudo su`, `vim /etc/grub.d/40_custom`, add following to the bottom:
@@ -68,8 +68,8 @@ This system has `gcc,python3.10,vim,wget,tmux,bash,ffmpeg,ssh_service` built_in,
     }
     ```
 
-5. you can change the `40_custom` based on `/boot/grub/grub.cfg`, I just did a copy and modify from "Unknown Linux distribution" boot menu. You just have to make sure the partiton position is right.
-6. after the modification, run `sudo update-grub`, it will update the real boot menu. (Sometimes you should also run `sudo grub-install /dev/xx`.)
+5. you can change the `40_custom` based on `/boot/grub/grub.cfg`, I just did a copy and modify from "Unknown Linux distribution" boot menu. You just have to make sure the disk partiton position and uuid is right. (use `blkid` to see uuid of partitions)
+6. after the modification, run `sudo update-grub`, it will update the real boot menu. (Sometimes you should also run `sudo grub-install /dev/xx` for all of your disks.)
 
 > alpine says their system support new boot method, for example EFI, but I don't know how to config it: https://wiki.alpinelinux.org/wiki/Bootloaders
 
@@ -77,7 +77,7 @@ This system has `gcc,python3.10,vim,wget,tmux,bash,ffmpeg,ssh_service` built_in,
 
 > lubuntu16 has gparted when you boot from usb, in there you can see your disk name and partition name in a clear way. But they will uninstall it after you install lubuntu16, what a stupid idea!
 
-> `/boot` folder basically manages all stuff related to your machine boot issue, when you do a partition copy and paste, you have to make sure something is inside of that.
+> `/boot` folder basically manages all stuff related to your machine boot issue, when you do a partition copy and paste, you have to make sure something is inside of that folder.
 
 > if `/boot` not work on your computer, try `/new_boot` by doing rename
 
@@ -138,8 +138,15 @@ vi /etc/network/interfaces
 ```
 auto eth0
 iface eth0 inet dhcp
-reboot
+
+#auto wlan0
+#allow-hotplug wlan0
+#iface wlan0 inet dhcp
+#wpa-ssid "your_wifi_name"
+#wpa-psk "your_wifi_password"
 ```
+
+reboot
 
 ### Set mirror
 vi /etc/apk/repositories
