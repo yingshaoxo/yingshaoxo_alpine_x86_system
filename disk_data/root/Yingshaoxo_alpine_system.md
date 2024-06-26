@@ -9,13 +9,15 @@ This system has `gcc,python3.10,vim,wget,tmux,bash,ffmpeg,ssh_service` built_in,
 
 > **According to my experience, each time when they created some new computer type, they will force abandon old systems, they will let you unable to install old systems. But unfortunately, old system has more freedom. As for security, what kind of hacker can hack in a computer that does not have internet?**
 
+> In the end, for all software in manufacturer level, they simply do disk copy, who would waste time to install system manually one by one for millions of devices in factory?
+
 
 ## How to install?
 1. Get an old computer that supports "MBR parition and BIOS boot_loading", normally it was created before 2010 years. Use "alpine_3.0.5_x86_setup-alpine.iso" file to do an offline install first by typing "setup-alpine". You may need to use "rufus" to make a bootable USB driver because the official alpine does not have boot software in their iso file, I hate that. Then copy and paste some folders under "./disk_data" to root folder of your system by using "./install_system.sh" (You should know how to mount a USB storage to a folder, then in that folder use rsync to do a copy.)
 2. Use "alpine_3.0.5_x86_setup-alpine.iso" file to do normal offline install first. then create a iso file or CD for "./disk_data", mount that iso file or CD to "/media/cdrom", run "./install_system.sh".
 3. Use "alpine_3.0.5_x86_setup-alpine.iso" to do offline install first. then in another disk partition, install another linux system that will generate boot menu and also work as a PE. In another linux system, copy "disk_data/*" folder to your alpine root folder based on rules in "./install_system.sh".
-4. Use virtualbox: just use vdi file directly if you can install virtualbox (You can also convert "./disk_data" to an iso file, then give it to virtualbox, then in your alpine system, you mount and use script to copy those files. **Virtualbox should let user be able to modify container files in realtime just like FTP or ssh or mount without installing any extensions**)
-5. Use chroot or mount if you know how to do it, I don't know. (script "./install_system.sh" may help you to figure out how)
+4. Or use virtualbox: just use vdi file directly if you can install virtualbox (You can also convert "./disk_data" to an iso file, then give it to virtualbox, then in your alpine system, you mount and use script to copy those files. **Virtualbox should let user be able to modify container files in realtime just like FTP or ssh or mount without installing any extensions**)
+5. Or use chroot or mount if you know how to do it, I don't know. (script "./install_system.sh" may help you to figure out how)
 
 > Virtualbox container: https://www.mediafire.com/file/54zdwsz4exbheq4/yingshaoxo_alpine_x86_system_virtualbox_2024_6_21.7z/file
 
@@ -24,7 +26,7 @@ This system has `gcc,python3.10,vim,wget,tmux,bash,ffmpeg,ssh_service` built_in,
 
 ## How to install the original alpine system?
 0. go to "alpine_3.0.5_x86_setup-alpine", run `./merge_to_get_real_iso_file.sh`. (It uses "cat alpine_3.0.5_x86_setup-alpine.0* > alpine_3.0.5_x86_setup-alpine_test.iso")
-1. or do the same thing with "hardware_bootable_alpine_3.0.5_x86", cd "hardware_bootable_alpine_3.0.5_x86", run "./merge_to_get_real_iso_file.sh". (Virtualbox does not support this version, this only works for real hardware x86 old computer. You will need to use `tar -xzf **.tar.gz` to get iso file. You will need to use dd to copy the whole iso file into your 8GB USB driver to create a boot USB, `dd if=**.iso of=/dev/sdb`)
+1. use "rufus" to install that iso file to your 1GB usb driver
 2. boot your machine with "alpine_3.0.5_x86_setup-alpine.iso"
 3. run `setup-alpine`
 4. manually modify network to add "iface eth0 inet dhcp" (if you don't know how to use vi, you can just hit enter)
@@ -38,6 +40,44 @@ This system has `gcc,python3.10,vim,wget,tmux,bash,ffmpeg,ssh_service` built_in,
 > I would suggest you papare 2 disk, one 10GB for system, one 1TB for your home data. Because this version of alpine does not support install to a partition, it will erase the whole disk.
 
 > This alpine version only supports ext2 than ext4. Just the same as ubuntu8.
+
+
+## How to install the hardware_bootable_alpine_3.0.5_x86 version?
+1. go to "hardware_bootable_alpine_3.0.5_x86" folder, run "./merge_to_get_real_iso_file.sh". (Virtualbox does not support this version, this only works for real hardware x86 old computer. You will need to use `tar -xzf **.tar.gz` to get iso file. You will need to use dd to copy the whole iso file into your 8GB USB driver to create a boot USB, `dd if=**.iso of=/dev/sdb`)
+2. boot your machine with "alpine_3.0.5_x86_setup-alpine.iso"
+3. do the installation as above section "install the original alpine sytem"
+
+
+## How to install the alpine in a single disk partition by doing disk partition copy and fix the boot menu?
+1. copy your old alpine system partition as a iso file, especially make sure the `/boot` folder has files: `vmlinuxz-grsec` and `initramfs-grsec`. `dd if=/dev/sdb2 of=xx.iso`
+2. use dd to copy that disk partiton to your new computer partition, a ext4 would be fine. `dd if=xx.iso of=/dev/sdb2`
+3. i am using `lubuntu16_i386` system to work as a PE system, all you have to do is install lubuntu16_i386 to another partition of your disk. It will generate a not working version of grub boot menu for you, you can see "unknown linux distrubution" when you boot your computer. you need to fix it later.
+4. boot into lubuntu16, `sudo su`, `vim /etc/grub.d/40_custom`, add following to the bottom:
+    ```
+    menuentry 'Alpine' {
+        insmod part_msdos
+        insmod ext2
+        set root='hd0,msdos5'
+        if [ x$feature_platform_search_hint = xy ]; then
+          search --no-floppy --fs-uuid --set=root --hint-bios=hd0,msdos5 --hint-efi=hd0,msdos5 --hint-baremetal=ahci0,msdos5  b22f8c27-ad74-4b25-a219-7c5a8d876451
+        else
+          search --no-floppy --fs-uuid --set=root b22f8c27-ad74-4b25-a219-7c5a8d876451
+        fi
+        linux /boot/vmlinuz-grsec root=/dev/sda5 rootfstype=ext4 modules=sd-mod,usb-storage,ext4
+        initrd '/boot/initramfs-grsec'
+    }
+    ```
+
+5. you can change the `40_custom` based on `/boot/grub/grub.cfg`, I just did a copy and modify from "Unknown Linux distribution" boot menu. You just have to make sure the partiton position is right.
+6. after the modification, run `sudo update-grub`, it will update the real boot menu. (Sometimes you should also run `sudo grub-install /dev/xx`.)
+
+> alpine says their system support new boot method, for example EFI, but I don't know how to config it: https://wiki.alpinelinux.org/wiki/Bootloaders
+
+> if you can't see unknow distrubution, change 40_custom to something like this `menuentry 'Alpline' {\nset root='hd0,msdos5'\nlinux /boot/vmlinuz-grsec root=/dev/sda5\ninitrd '/boot/initramfs-grsec''`, run `update-grub`.
+
+> lubuntu16 has gparted when you boot from usb, in there you can see your disk name and partition name in a clear way. But they will uninstall it after you install lubuntu16, what a stupid idea!
+
+> `/boot` folder basically manages all stuff related to your machine boot issue, when you do a partition copy and paste, you have to make sure something is inside of that.
 
 
 ## How to install yingshaoxo alpine system?

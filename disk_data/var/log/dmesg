@@ -1,0 +1,203 @@
+[    0.131447] PCI: Ignoring host bridge windows from ACPI; if necessary, use "pci=use_crs" and report a bug
+[    0.131482] ACPI: No dock devices found.
+[    0.135573] ACPI: PCI Root Bridge [PCI0] (domain 0000 [bus 00-ff])
+[    0.135577] acpi PNP0A03:00: _OSC: OS supports [ASPM ClockPM Segments MSI]
+[    0.135850] acpi PNP0A03:00: _OSC: not requesting OS control; OS requires [ExtendedConfig ASPM ClockPM MSI]
+[    0.135924] acpi PNP0A03:00: host bridge window [io  0x0000-0x0cf7] (ignored)
+[    0.135925] acpi PNP0A03:00: host bridge window [io  0x0d00-0xffff] (ignored)
+[    0.135927] acpi PNP0A03:00: host bridge window [mem 0x000a0000-0x000bffff] (ignored)
+[    0.135929] acpi PNP0A03:00: host bridge window [mem 0x04000000-0xfdffffff] (ignored)
+[    0.135930] PCI: root bus 00: using default resources
+[    0.135932] acpi PNP0A03:00: fail to add MMCONFIG information, can't access extended PCI configuration space under this bridge.
+[    0.136118] PCI host bridge to bus 0000:00
+[    0.136120] pci_bus 0000:00: root bus resource [bus 00-ff]
+[    0.136122] pci_bus 0000:00: root bus resource [io  0x0000-0xffff]
+[    0.136123] pci_bus 0000:00: root bus resource [mem 0x00000000-0xffffffff]
+[    0.136150] pci 0000:00:00.0: [8086:1237] type 00 class 0x060000
+[    0.136514] pci 0000:00:01.0: [8086:7000] type 00 class 0x060100
+[    0.137078] pci 0000:00:01.1: [8086:7111] type 00 class 0x01018a
+[    0.137290] pci 0000:00:01.1: reg 0x20: [io  0xd000-0xd00f]
+[    0.137544] pci 0000:00:02.0: [80ee:beef] type 00 class 0x030000
+[    0.137765] pci 0000:00:02.0: reg 0x10: [mem 0xe0000000-0xe0ffffff pref]
+[    0.138913] pci 0000:00:03.0: [1022:2000] type 00 class 0x020000
+[    0.139074] pci 0000:00:03.0: reg 0x10: [io  0xd020-0xd03f]
+[    0.139168] pci 0000:00:03.0: reg 0x14: [mem 0xf0000000-0xf0000fff]
+[    0.139716] pci 0000:00:04.0: [80ee:cafe] type 00 class 0x088000
+[    0.139804] pci 0000:00:04.0: reg 0x10: [io  0xd040-0xd05f]
+[    0.139869] pci 0000:00:04.0: reg 0x14: [mem 0xf0400000-0xf07fffff]
+[    0.139933] pci 0000:00:04.0: reg 0x18: [mem 0xf0800000-0xf0803fff pref]
+[    0.140388] pci 0000:00:05.0: [8086:2415] type 00 class 0x040100
+[    0.140448] pci 0000:00:05.0: reg 0x10: [io  0xd100-0xd1ff]
+[    0.140489] pci 0000:00:05.0: reg 0x14: [io  0xd200-0xd23f]
+[    0.140840] pci 0000:00:06.0: [106b:003f] type 00 class 0x0c0310
+[    0.140961] pci 0000:00:06.0: reg 0x10: [mem 0xf0804000-0xf0804fff]
+[    0.141600] pci 0000:00:07.0: [8086:7113] type 00 class 0x068000
+[    0.141836] pci 0000:00:07.0: quirk: [io  0x4000-0x403f] claimed by PIIX4 ACPI
+[    0.141843] pci 0000:00:07.0: quirk: [io  0x4100-0x410f] claimed by PIIX4 SMB
+[    0.142055] pci 0000:00:0b.0: [8086:265c] type 00 class 0x0c0320
+[    0.142174] pci 0000:00:0b.0: reg 0x10: [mem 0xf0805000-0xf0805fff]
+[    0.142867] pci_bus 0000:00: on NUMA node 0
+[    0.143525] ACPI: PCI Interrupt Link [LNKA] (IRQs 5 9 10 *11)
+[    0.143692] ACPI: PCI Interrupt Link [LNKB] (IRQs 5 9 *10 11)
+[    0.143748] ACPI: PCI Interrupt Link [LNKC] (IRQs 5 *9 10 11)
+[    0.143804] ACPI: PCI Interrupt Link [LNKD] (IRQs 5 9 10 *11)
+[    0.143918] ACPI: Enabled 2 GPEs in block 00 to 07
+[    0.144002] vgaarb: device added: PCI:0000:00:02.0,decodes=io+mem,owns=io+mem,locks=none
+[    0.144004] vgaarb: loaded
+[    0.144005] vgaarb: bridge control possible 0000:00:02.0
+[    0.144008] ACPI: bus type USB registered
+[    0.144044] usbcore: registered new interface driver usbfs
+[    0.144061] usbcore: registered new interface driver hub
+[    0.144082] usbcore: registered new device driver usb
+[    0.144171] PCI: Using ACPI for IRQ routing
+[    0.144172] PCI: pci_cache_line_size set to 64 bytes
+[    0.144292] e820: reserve RAM buffer [mem 0x0009fc00-0x0009ffff]
+[    0.144293] e820: reserve RAM buffer [mem 0x03ff0000-0x03ffffff]
+[    0.144426] Switched to clocksource refined-jiffies
+[    0.144470] pnp: PnP ACPI init
+[    0.144474] ACPI: bus type PNP registered
+[    0.144512] pnp 00:00: Plug and Play ACPI device, IDs PNP0303 (active)
+[    0.144518] pnp 00:01: [dma 4]
+[    0.144538] pnp 00:01: Plug and Play ACPI device, IDs PNP0200 (active)
+[    0.144583] pnp 00:02: Plug and Play ACPI device, IDs PNP0f03 (active)
+[    0.145006] pnp: PnP ACPI: found 3 devices
+[    0.145007] ACPI: bus type PNP unregistered
+[    0.181157] Switched to clocksource acpi_pm
+[    0.181163] pci_bus 0000:00: resource 4 [io  0x0000-0xffff]
+[    0.181165] pci_bus 0000:00: resource 5 [mem 0x00000000-0xffffffff]
+[    0.181191] NET: Registered protocol family 2
+[    0.181350] TCP established hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.181353] TCP bind hash table entries: 1024 (order: 1, 8192 bytes)
+[    0.181355] TCP: Hash tables configured (established 1024 bind 1024)
+[    0.181363] TCP: reno registered
+[    0.181364] UDP hash table entries: 256 (order: 1, 8192 bytes)
+[    0.181367] UDP-Lite hash table entries: 256 (order: 1, 8192 bytes)
+[    0.181397] NET: Registered protocol family 1
+[    0.181404] pci 0000:00:00.0: Limiting direct PCI/PCI transfers
+[    0.181432] pci 0000:00:01.0: Activating ISA DMA hang workarounds
+[    0.181451] pci 0000:00:02.0: Boot video device
+[    0.182056] ACPI: PCI Interrupt Link [LNKB] enabled at IRQ 10
+[    0.182058] PCI: setting IRQ 10 as level-triggered
+[    0.183167] ACPI: PCI Interrupt Link [LNKC] enabled at IRQ 9
+[    0.183168] PCI: setting IRQ 9 as level-triggered
+[    0.183557] PCI: CLS 0 bytes, default 64
+[    0.183597] Trying to unpack rootfs image as initramfs...
+[    0.313154] Freeing initrd memory: 5824K (c3a40000 - c3ff0000)
+[    0.313376] platform rtc_cmos: registered platform RTC device (no PNP device found)
+[    0.313712] futex hash table entries: 256 (order: 2, 16384 bytes)
+[    0.337449] VFS: Disk quotas dquot_6.5.2
+[    0.337467] Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)
+[    0.337489] msgmni has been set to 114
+[    0.337571] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 252)
+[    0.337572] io scheduler noop registered
+[    0.337580] io scheduler cfq registered (default)
+[    0.337678] pci_hotplug: PCI Hot Plug PCI Core version: 0.5
+[    0.337732] pciehp: PCI Express Hot Plug Controller Driver version: 0.4
+[    0.337734] intel_idle: does not run on family 6 model 141
+[    0.337737] ERST DBG: ERST support is disabled.
+[    0.337741] isapnp: Scanning for PnP cards...
+[    0.697552] isapnp: No Plug & Play device found
+[    0.697591] Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+[    0.699843] brd: module loaded
+[    0.699847] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    0.699848] ehci-pci: EHCI PCI platform driver
+[    0.700273] ehci-pci 0000:00:0b.0: EHCI Host Controller
+[    0.700277] ehci-pci 0000:00:0b.0: new USB bus registered, assigned bus number 1
+[    0.700391] ehci-pci 0000:00:0b.0: irq 9, io mem 0xf0805000
+[    0.707346] ehci-pci 0000:00:0b.0: USB 2.0 started, EHCI 1.00
+[    0.707376] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002
+[    0.707378] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    0.707379] usb usb1: Product: EHCI Host Controller
+[    0.707380] usb usb1: Manufacturer: Linux 3.14.20-1-grsec ehci_hcd
+[    0.707381] usb usb1: SerialNumber: 0000:00:0b.0
+[    0.707482] hub 1-0:1.0: USB hub found
+[    0.707487] hub 1-0:1.0: 12 ports detected
+[    0.707672] i8042: PNP: PS/2 Controller [PNP0303:PS2K,PNP0f03:PS2M] at 0x60,0x64 irq 1,12
+[    0.708028] serio: i8042 KBD port at 0x60,0x64 irq 1
+[    0.708031] serio: i8042 AUX port at 0x60,0x64 irq 12
+[    0.708643] input: AT Translated Set 2 keyboard as /devices/platform/i8042/serio0/input/input1
+[    0.708759] rtc_cmos rtc_cmos: rtc core: registered rtc_cmos as rtc0
+[    0.708784] rtc_cmos rtc_cmos: alarms up to one day, 114 bytes nvram
+[    0.708858] gre: GRE over IPv4 demultiplexor driver
+[    0.708860] TCP: cubic registered
+[    0.708868] Key type dns_resolver registered
+[    0.708895] Using IPI No-Shortcut mode
+[    0.708978] registered taskstats version 1
+[    0.709160] rtc_cmos rtc_cmos: setting system clock to 2024-06-26 02:35:16 UTC (1719369316)
+[    0.709286] Freeing unused kernel memory: 448K (c14e2000 - c1552000)
+[    0.748479] SCSI subsystem initialized
+[    0.758519] usbcore: registered new interface driver usb-storage
+[    0.795034] loop: module loaded
+[    0.826723] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    0.828362] ohci-pci: OHCI PCI platform driver
+[    0.828789] ohci-pci 0000:00:06.0: OHCI PCI host controller
+[    0.828794] ohci-pci 0000:00:06.0: new USB bus registered, assigned bus number 2
+[    0.828823] ohci-pci 0000:00:06.0: irq 10, io mem 0xf0804000
+[    0.880724] usb usb2: New USB device found, idVendor=1d6b, idProduct=0001
+[    0.880727] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    0.880728] usb usb2: Product: OHCI PCI host controller
+[    0.880730] usb usb2: Manufacturer: Linux 3.14.20-1-grsec ohci_hcd
+[    0.880731] usb usb2: SerialNumber: 0000:00:06.0
+[    0.882738] hub 2-0:1.0: USB hub found
+[    0.882754] hub 2-0:1.0: 12 ports detected
+[    0.894280] libata version 3.00 loaded.
+[    0.904499] ata_piix 0000:00:01.1: version 2.13
+[    0.922054] scsi0 : ata_piix
+[    0.925714] scsi1 : ata_piix
+[    0.927572] ata1: PATA max UDMA/33 cmd 0x1f0 ctl 0x3f6 bmdma 0xd000 irq 14
+[    0.927574] ata2: PATA max UDMA/33 cmd 0x170 ctl 0x376 bmdma 0xd008 irq 15
+[    1.081297] ata2.00: ATAPI: VBOX CD-ROM, 1.0, max UDMA/133
+[    1.081422] ata1.00: ATA-6: VBOX HARDDISK, 1.0, max UDMA/133
+[    1.081423] ata1.00: 4194304 sectors, multi 128: LBA 
+[    1.081960] ata2.00: configured for UDMA/33
+[    1.082022] ata1.00: configured for UDMA/33
+[    1.082095] scsi 0:0:0:0: Direct-Access     ATA      VBOX HARDDISK    1.0  PQ: 0 ANSI: 5
+[    1.084511] sd 0:0:0:0: [sda] 4194304 512-byte logical blocks: (2.14 GB/2.00 GiB)
+[    1.084551] sd 0:0:0:0: [sda] Write Protect is off
+[    1.084553] sd 0:0:0:0: [sda] Mode Sense: 00 3a 00 00
+[    1.084570] sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+[    1.090603]  sda: sda1 sda2 sda3
+[    1.093180] scsi 1:0:0:0: CD-ROM            VBOX     CD-ROM           1.0  PQ: 0 ANSI: 5
+[    1.103721] sd 0:0:0:0: [sda] Attached SCSI disk
+[    1.143444] sr0: scsi3-mmc drive: 32x/32x xa/form2 tray
+[    1.143447] cdrom: Uniform CD-ROM driver Revision: 3.20
+[    1.148811] sr 1:0:0:0: Attached scsi CD-ROM sr0
+[    1.218876] EXT4-fs (sda3): INFO: recovery required on readonly filesystem
+[    1.218879] EXT4-fs (sda3): write access will be enabled during recovery
+[    1.224700] EXT4-fs (sda3): recovery complete
+[    1.225018] EXT4-fs (sda3): mounted filesystem with ordered data mode. Opts: (null)
+[    1.310273] tsc: Refined TSC clocksource calibration: 2304.158 MHz
+[    1.487068] ACPI: AC Adapter [AC] (on-line)
+[    1.494871] input: Power Button as /devices/LNXSYSTM:00/LNXPWRBN:00/input/input3
+[    1.494876] ACPI: Power Button [PWRF]
+[    1.495368] input: Sleep Button as /devices/LNXSYSTM:00/LNXSLPBN:00/input/input4
+[    1.495371] ACPI: Sleep Button [SLPF]
+[    1.538753] ACPI: Video Device [GFX0] (multi-head: yes  rom: no  post: no)
+[    1.540616] input: Video Bus as /devices/LNXSYSTM:00/device:00/PNP0A03:00/LNXVIDEO:00/input/input5
+[    2.311946] Switched to clocksource tsc
+[    4.632115] floppy0: no floppy controllers found
+[    4.632137] work still pending
+[    4.639087] ACPI: Battery Slot [BAT0] (battery present)
+[    4.648861] pcnet32: pcnet32.c:v1.35 21.Apr.2008 tsbogend@alpha.franken.de
+[    4.649325] pcnet32: PCnet/FAST III 79C973 at 0xd020, 08:00:27:c3:27:b8 assigned IRQ 9
+[    4.649369] pcnet32: Found PHY 0022:561b at address 0
+[    4.655116] pcnet32: eth0: registered as PCnet/FAST III 79C973
+[    4.656974] pcnet32: 1 cards_found
+[    4.659989] Linux agpgart interface v0.103
+[    4.690506] ACPI: PCI Interrupt Link [LNKA] enabled at IRQ 11
+[    4.690509] PCI: setting IRQ 11 as level-triggered
+[    5.013522] intel8x0_measure_ac97_clock: measured 55302 usecs (2880 samples)
+[    5.013525] intel8x0: clocking to 44242
+[    5.323144] piix4_smbus 0000:00:07.0: SMBus Host Controller at 0x4100, revision 0
+[    5.332040] input: PC Speaker as /devices/platform/pcspkr/input/input6
+[    5.549898] psmouse serio1: alps: Unknown ALPS touchpad: E7=10 00 64, EC=10 00 64
+[    5.550981] input: ImExPS/2 Generic Explorer Mouse as /devices/platform/i8042/serio1/input/input7
+[    5.575165] mousedev: PS/2 mouse device common for all mice
+[    8.483082] floppy0: no floppy controllers found
+[    8.483094] work still pending
+[    8.507695] NET: Registered protocol family 17
+[    8.522318] grsec: time set by /bin/busybox[hwclock:920] uid/euid:0/0 gid/egid:0/0, parent /lib/rc/sh/runscript.sh[runscript.sh:905] uid/euid:0/0 gid/egid:0/0
+[    8.550191] EXT4-fs (sda3): re-mounted. Opts: data=ordered
+[    8.611137] Adding 117756k swap on /dev/sda2.  Priority:-1 extents:1 across:117756k 
+[    8.671028] EXT4-fs (sda1): recovery complete
+[    8.671032] EXT4-fs (sda1): mounted filesystem with ordered data mode. Opts: data=ordered

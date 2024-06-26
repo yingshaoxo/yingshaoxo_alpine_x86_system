@@ -1,0 +1,5 @@
+exec=/usr/sbin/crond
+argv_0=/usr/sbin/crond
+argv_1=-c
+argv_2=/etc/crontabs
+pidfile=/var/run/crond.pid

@@ -1,0 +1,3 @@
+exec=/sbin/klogd
+argv_0=/sbin/klogd
+pidfile=/var/run/klogd.pid

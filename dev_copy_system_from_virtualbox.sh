@@ -14,8 +14,12 @@ rsync -av root@192.168.2.107:/ ./disk_data/
 #rsync -av root@192.168.2.107:/root/ ./disk_data/root/
 #rsync -av root@192.168.2.107:/boot/ ./disk_data/boot/
 
+mkdir ./disk_data/new_boot
+cp -fr ./_new_boot_/* ./disk_data/new_boot/
+
 cp ./rsync ./disk_data/
 cp ./install_system.sh ./disk_data/
+cp ./install_new_kernel_for_new_computer.sh ./disk_data/
 
 #sudo apt install mkisofs
 #sudo mkisofs -R -J -o disk_data.iso disk_data/

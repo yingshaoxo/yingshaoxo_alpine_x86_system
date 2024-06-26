@@ -49,7 +49,7 @@ This system has `gcc,python3.10,vim,wget,tmux,bash,ffmpeg,ssh_service` built_in,
 
 
 ## How to install the alpine in a single disk partition by doing disk partition copy and fix the boot menu?
-1. copy your old alpine system partition as a iso file, especially make sure the `/boot` folder has files: `vmlinuxz-grsec` and `initramfs-grsec`. `dd if=/dev/sdb2 of=xx.iso`
+1. copy your old alpine system partition as a iso file, especially make sure the `/boot` folder has files: `vmlinuxz-grsec` and `initramfs-grsec`. `dd if=/dev/sdb2 of=xx.iso`. (also do `chown -R root /` to make all files in that partition belongs to root permission)
 2. use dd to copy that disk partiton to your new computer partition, a ext4 would be fine. `dd if=xx.iso of=/dev/sdb2`
 3. i am using `lubuntu16_i386` system to work as a PE system, all you have to do is install lubuntu16_i386 to another partition of your disk. It will generate a not working version of grub boot menu for you, you can see "unknown linux distrubution" when you boot your computer. you need to fix it later.
 4. boot into lubuntu16, `sudo su`, `vim /etc/grub.d/40_custom`, add following to the bottom:
@@ -78,6 +78,8 @@ This system has `gcc,python3.10,vim,wget,tmux,bash,ffmpeg,ssh_service` built_in,
 > lubuntu16 has gparted when you boot from usb, in there you can see your disk name and partition name in a clear way. But they will uninstall it after you install lubuntu16, what a stupid idea!
 
 > `/boot` folder basically manages all stuff related to your machine boot issue, when you do a partition copy and paste, you have to make sure something is inside of that.
+
+> if `/boot` not work on your computer, try `/new_boot` by doing rename
 
 
 ## How to install yingshaoxo alpine system?

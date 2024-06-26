@@ -1,0 +1,11 @@
+#!/sbin/runscript
+
+name="busybox syslog"
+command="/sbin/syslogd"
+command_args="${SYSLOGD_OPTS}"
+pidfile="/var/run/syslogd.pid"
+
+depend() {
+	need clock hostname klogd localmount
+	provide logger
+}

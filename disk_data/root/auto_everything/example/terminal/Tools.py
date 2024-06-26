@@ -561,12 +561,29 @@ ifdown -v {interface}; ifup -v {interface}
                     all_list = [f'<a href="{new_request_url}/{file}">{file}</a>' for file in all_list]
 
                     html_code = "<br>".join(all_list)
-                    return html_code
+                    return html_code, {"Accept-Ranges": "bytes"}
                 else:
-                    with open(real_file_path, "rb") as f:
-                        bytes_data = f.read()
-                    return bytes_data
+                    full_size = os.path.getsize(real_file_path)
+                    if "Range" not in request.headers:
+                        with open(real_file_path, "rb") as f:
+                            bytes_data = f.read()
+                        return bytes_data, {"Accept-Ranges": "bytes"}
+                    else:
+                        range = request.headers["Range"]
+                        range_data = range.split("=")[1]
+                        start_bytes, end_bytes = range_data.split("-")
+                        if start_bytes != "":
+                            start_bytes = int(start_bytes)
+                        if end_bytes != "":
+                            end_bytes = int(end_bytes)
+                        else:
+                            end_bytes = full_size
+                        with open(real_file_path, "rb") as f:
+                            f.seek(start_bytes)
+                            bytes_data = f.read(end_bytes-start_bytes)
+                        return bytes_data, {"Accept-Ranges": "bytes", "Content-Range": f"bytes {str(start_bytes)}-{str(end_bytes)}/{full_size}"}, "HTTP/1.1 206 Partial Content"
             except Exception as e:
+                print(e)
                 return str(e)
 
         def special_handler(request: Yingshaoxo_Http_Request):
