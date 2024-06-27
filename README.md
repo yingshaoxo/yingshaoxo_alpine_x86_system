@@ -79,9 +79,9 @@ This system has `gcc,python3.10,vim,wget,tmux,bash,ffmpeg,ssh_service` built_in,
 
 > `/boot` folder basically manages all stuff related to your machine boot issue, when you do a partition copy and paste, you have to make sure something is inside of that folder.
 
-> if `/boot` not work on your computer, try `/new_boot` by doing rename
+> if `/boot` not work on your computer, try `/new_boot` by doing rename according to new_boot folder files
 
-### If you have ubuntu14, you can also use their /boot folder for newer amd64 computer that only support efi
+### If you have ubuntu14, you can also use their /boot folder for newer amd64 computer that only support efi and only allow you to use ubuntu linux
 
 copy `./_new_boot2014_/*` into your alpine `/boot/` folder, then change boot menu `/etc/grub.d/40_custom`:
 
@@ -91,13 +91,21 @@ menuentry 'Alpine Linux 3.0 based on ubuntu14 boot' {
 	insmod part_msdos
 	insmod ext2
 	search --no-floppy --fs-uuid --set=root 0f2b91c3-fb66-4d58-852c-57f1fcb31604
-	linux /_new_boot2014_/vmlinuz-4.4.0-142-generic.efi.signed root=UUID=0f2b91c3-fb66-4d58-852c-57f1fcb31604 ro intel_pstate=enable
-	initrd /_new_boot2014_/initrd.img-4.4.0-142-generic
+	linux /boot/vmlinuz-4.4.0-142-generic.efi.signed root=UUID=0f2b91c3-fb66-4d58-852c-57f1fcb31604 ro intel_pstate=enable
+	initrd /boot/initrd.img-4.4.0-142-generic
 
 }
 ```
 
 > If you have ubuntu8-server, in ubuntu8, you can even do offline install for gcc,php5,mysql-server by using `apt-cdrom add /dev/cdrom` and `apt-get install build-essential`.
+
+> I can do nothing in software level if your bios hard board only allow you to use newer version of ubuntu and windows10
+
+### Fix `/lib/modules` modprobe problem
+
+In linux, they tend to hide some driver in kernel binary file, or hide some driver in /lib/modules. What you need to do is uncompressing "./_lib_modules_" folder files, then put those folder under your system folder `/lib/modules/`. Maybe this will help you fixing some driver problems. For example, let you be able to mount vfat usb or nvme SSD storage or give_you_framebuffer.
+
+> `tar -xzf ./_lib_modules_/5.4.5-0-lts.tar.gz && cp -fr ./* /media/alpine/lib/modules/`
 
 
 ## How to install yingshaoxo alpine system?
