@@ -97,6 +97,8 @@ menuentry 'Alpine Linux 3.0 based on ubuntu14 boot' {
 }
 ```
 
+> If you have ubuntu8-server, in ubuntu8, you can even do offline install for gcc,php5,mysql-server by using `apt-cdrom add /dev/cdrom` and `apt-get install xx`.
+
 
 ## How to install yingshaoxo alpine system?
 ### Method 1
