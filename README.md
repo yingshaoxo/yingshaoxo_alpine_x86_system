@@ -88,7 +88,7 @@ copy `./_new_boot2014_/*` into your alpine `/boot/` folder, then change boot men
 ```
 menuentry 'Alpine Linux 3.0 based on ubuntu14 boot' {
 	insmod part_gpt
-    insmod part_msdos
+	insmod part_msdos
 	insmod ext2
 	search --no-floppy --fs-uuid --set=root 0f2b91c3-fb66-4d58-852c-57f1fcb31604
 	linux /_new_boot2014_/vmlinuz-4.4.0-142-generic.efi.signed root=UUID=0f2b91c3-fb66-4d58-852c-57f1fcb31604 ro intel_pstate=enable
