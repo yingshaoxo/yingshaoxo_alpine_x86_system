@@ -81,6 +81,8 @@ This system has `gcc,python3.10,vim,wget,tmux,bash,ffmpeg,ssh_service` built_in,
 
 > if `/boot` not work on your computer, try `/new_boot` by doing rename according to new_boot folder files
 
+> **No matter how you do, in the end, you have to make sure the uuid for / in `etc/fstab` is correct.**
+
 ### If you have ubuntu14, you can also use their /boot folder for newer amd64 computer that only support efi and only allow you to use ubuntu linux
 
 copy `./_new_boot2014_/*` into your alpine `/boot/` folder, then change boot menu `/etc/grub.d/40_custom`:
