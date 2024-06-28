@@ -109,6 +109,12 @@ In linux, they tend to hide some driver in kernel binary file, or hide some driv
 
 > `tar -xzf ./_lib_modules_/5.4.5-0-lts.tar.gz && cp -fr ./* /media/alpine/lib/modules/`
 
+### Fix `utmp or start.p` permission problem
+
+I don't know why, but new desktop linux system is very weak. If you mess up permissions of some system file, it will refuse to boot.
+
+The best way to handle it is directly do partition copy from one disk to another, or use dd. rsync is not that useful unless you do `sudo rsync -av --exclude '/proc/kcore' root@192.168.2.106:/ /media/popos/`.
+
 
 ## How to install yingshaoxo alpine system?
 ### Method 1
